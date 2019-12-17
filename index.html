@@ -45,6 +45,30 @@
 		<div class="container">
 			<!-- ピックアップコンテンツ-->
 			<div class="row py-3">
+	<?php
+        $query = new WP_Query( 'tag=toppickup' );
+        ?>
+        <?php while ( $query->have_posts() ) : $query->the_post(); ?>
+          <div class="bg-white py-3">
+            <!--サムネイル-->
+            <div class="pb-3">
+              <?php if ( has_post_thumbnail() ) : ?>
+                <?php the_post_thumbnail('', array( 'class' => 'img-fluid' ) ); ?>
+              <?php else : ?>
+                <img class="img-fluid" width="100%" src="<?php echo get_template_directory_uri(); ?>/img/no-image.png" alt="">
+              <?php endif; ?>            </div>
+            <!--記事タイトル-->
+            <h2 class="h4 px-3 pb-3"><?php the_title(); ?></h2>
+            <!--ボタン-->
+            <div class="text-center">
+              <a href="<?php the_permalink(); ?>">
+                <div class="d-inline-block border p-3 text-secondary">
+                  READ MORE
+                </div>
+              </a>
+            </div>
+          </div>
+        <?php endwhile; ?>
 				<div class="col-md-4 col-xs-12">
 					<div class="bg-white py-3">
 						<!-- サムネイルの表示 -->
