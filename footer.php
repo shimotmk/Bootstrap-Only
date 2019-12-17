@@ -19,17 +19,26 @@
           </p>
         </div>
       </div>
-      <div class="col-md-4 col-xs-12">
-        <h4 class="d-inline-block pb-3 border-bottom border-info">Portfolio</h4>
-        <div class="p-3 border-top border-bottom border-secondary">
-          <a class="text-secondary" target="_blank" href="https://nabla72.com/">
-            大学生の日常ブログ
-          </a>
-        </div>
-        <div class="p-3 border-bottom border-secondary">
-          <a class="text-secondary" target="_blank" href="#">
-            大学生の日常ブログ
-          </a>
+      <div class="col-md-4 col-12">
+        <div class="pb-5">
+            <h4 class="d-inline-block py-3 border-bottom border-info">Portfolio</h4>
+          </div>
+          <?php
+          wp_nav_menu(
+            array(
+              //カスタムメニュー名
+              'theme_location' => 'header-navi',
+              //コンテナを表示しない
+              'container' => false,
+              //メニューを構成する ul 要素に適用するCSS クラス名。にnavbar-navを入れる
+              'menu_class' => 'list-unstyled',
+              'before' => '<div class="p-3 border-top border-bottom border-secondary">',
+              'after' => '</div>',
+              'link_before' => '<span class="text-secondary">',
+              'link_after' => '</span>',
+            )
+          );
+          ?>
         </div>
       </div>
       <div class="col-md-4 col-xs-12">
