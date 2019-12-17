@@ -136,4 +136,50 @@ add_action(
 		register_widget('MySampleWidgetParam');	//パラメータあり
 	}
 );
+
+
+
+
+
+
+
+
+
+
+
+
+/*ウィジェットエリアを設定*/
+add_action(
+	'widgets_init',
+	function(){
+		register_sidebar(array(
+			'name' => 'サイドバー',
+			'id' => 'profile_widget01',
+      'description' => 'プロフィールのウィジェット',
+      'before_widget' => '<div class="container bg-white mb-5 py-5 text-center">',
+		  'after_widget' => '</div>',
+      'before_title' => '<h4 class="d-inline-block py-3 border-bottom border-info">',
+		  'after_title' => '</h4>',
+		));
+		register_sidebar(array(
+			'name' => 'フッターAbout',
+			'id' => 'footer_widget01',
+      'description' => 'フッターAbout',
+      'before_widget' => '<div class="pb-5">',
+		  'after_widget' => '</div>',
+      'before_title' => '<h4 class="d-inline-block py-3 border-bottom border-info">',
+		  'after_title' => '</h4>',
+    ));
+    register_sidebar(array(
+			'name' => 'フッターTwitter',
+			'id' => 'footer_widget02',
+      'description' => 'フッターTwitter',
+      'before_widget' => '<div class="pb-5">',
+		  'after_widget' => '</div>',
+      'before_title' => '<h4 class="d-inline-block py-3 border-bottom border-info">',
+		  'after_title' => '</h4>',
+    ));
+	}
+);
+
 ?>
